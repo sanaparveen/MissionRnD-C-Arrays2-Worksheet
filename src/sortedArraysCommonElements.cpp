@@ -23,7 +23,7 @@ struct transaction {
 	char description[20];
 };
 
-void toStringDate(char date[], int d[], int v);
+void toStringDate(char date[], int d[]);
 int lesserDate(int date1[], int date2[])
 {
 	int i;
@@ -55,8 +55,8 @@ struct transaction * sortedArraysCommonElements(struct transaction *A, int ALen,
 
 	while (i < ALen && j < BLen)
 	{
-		toStringDate(A[i].date, date1, i);
-		toStringDate(B[j].date, date2, j);
+		toStringDate(A[i].date, date1);
+		toStringDate(B[j].date, date2);
 		if (lesserDate(date1, date2))
 			i++;
 		else if (greaterDate(date1, date2))
@@ -76,7 +76,7 @@ struct transaction * sortedArraysCommonElements(struct transaction *A, int ALen,
 
 }
 
-void toStringDate(char date[], int d[], int v){
+void toStringDate(char date[], int d[]){
 
 	int i = 0, j = 0, k;
 	d[0] = 0;
